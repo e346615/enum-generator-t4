@@ -54,7 +54,7 @@ namespace <#= project.Properties.Item("DefaultNamespace").Value #><#= Path.GetDi
 <#+
     private string Pascalize(object value)
     {
-        Regex rx = new Regex(@"(?:^|[^a-zA-Z]+)(?<first>[a-zA-Z])(?<reminder>[a-zA-Z0-9]+)");
+		Regex rx = new Regex(@"(?:^|[^a-zA-Z]+)(?<first>[a-zA-Z])(?<reminder>[a-zA-Z0-9]+)(?:[^a-zA-Z0-9]*$)?");
         return rx.Replace(value.ToString(), m => m.Groups["first"].ToString().ToUpper() + m.Groups["reminder"].ToString().ToLower());
     }
 #>
